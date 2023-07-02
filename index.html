@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="3D VR Backyard Environment in Aframe">
+<meta name="Keywords" content="3D, VR, backyard, animals, Aframe">
+	
+<title>3D VR Backyard Animals</title>
+
+<script src="./dist/aframe-v1.3.0.min.js"></script>
+<script src="./dist/aframe-v1.3.0.min.js.map"></script>
+<script src="./aframe-cubemap-component/dist/aframe-cubemap-component.min.js"></script>
+</head>
+
+<body>
+	
+<a-scene>
+		<a-assets>
+			<a-cubemap id="backYard">
+				<!--The order of these images is important!-->
+				<img src="./Cubemap-Ratio/posx.jpg" alt="tree "/>
+				<img src="./Cubemap-Ratio/negx.jpg" alt="shade" />
+				<img src="./Cubemap-Ratio/posy.jpg" alt="sky" />
+				<img src="./Cubemap-Ratio/negy.jpg" alt="ground" />
+				<img src="./Cubemap-Ratio/posz.jpg" alt="chair" />
+				<img src="./Cubemap-Ratio/negz.jpg" alt="shed" />
+			</a-cubemap>
+			
+			<img id="bricks" src="./images/brick-octogon.jpg" alt="brickcolor" >
+			<img id="bricksnorm" src="images/brick-octogon-norm.jpg" alt="bricktexture" >
+		</a-assets>
+		
+    <a-entity cubemap="folder: #backYard; edgeLength: 135">
+		
+		<a-plane material=
+			"src: #bricks;
+			normal-map: #bricksnorm;
+			normal-texture-repeat: 2 2;
+			normal-scale: 2 -1;" 
+			position="0 -65 0" 
+			rotation="-90 145 -55" 
+			scale="135 135 1">
+		</a-plane>
+		
+	</a-entity>		
+	
+			
+</a-scene>
+</body>
+</html>
